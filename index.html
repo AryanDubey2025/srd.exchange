@@ -1,22 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SRD Exchange</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coming Soon — SRD</title>
+  <meta name="description" content="SRD — Coming Soon">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      font-size: 40px;
+    /* Dark Mode Base */
+    :root{
+      --bg: #0b0f14;
+      --card: #0f1621;
+      --text: #e5eef7;
+      --muted: #9ab3c9;
+      --accent: #60a5fa;
+      --ring: rgba(96,165,250,.35);
+      --glow: 0 0 40px rgba(96,165,250,.25), 0 0 80px rgba(96,165,250,.15);
+    }
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(96,165,250,.10), transparent 60%),
+                  radial-gradient(900px 700px at -10% 100%, rgba(16,185,129,.10), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: grid;
+      place-items: center;
+    }
+    .wrap{
+      width: min(880px, 92vw);
+      text-align: center;
+      padding: 3rem 1rem;
+      animation: fadeIn .9s ease both;
+    }
+    .logo{
+      width: 140px;
+      height: 140px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 1.25rem;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      box-shadow: 0 12px 40px rgba(0,0,0,.35), var(--glow);
+      outline: 1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(6px);
+    }
+    .logo img{
+      width: 72%;
+      height: auto;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,.35));
+    }
+    h1{
+      margin: .3rem 0 0.5rem;
+      font-size: clamp(2.2rem, 3.6vw + 1rem, 3.4rem);
+      font-weight: 800;
+      letter-spacing: .4px;
+      line-height: 1.05;
+      background: linear-gradient(90deg, #e5eef7 0%, #cfe4ff 40%, #a7c8ff 60%, #e5eef7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 0 rgba(0,0,0,0), 0 8px 34px rgba(96,165,250,.12);
+    }
+    .sub{
+      margin: 0 auto 1.25rem;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: clamp(1rem, .5vw + .9rem, 1.1rem);
+      line-height: 1.6;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      margin-top: .5rem;
+      padding:.5rem .9rem;
+      border-radius:999px;
+      background: rgba(96,165,250,.10);
+      color: #cfe4ff;
+      outline: 1px solid rgba(96,165,250,.25);
+      box-shadow: var(--glow);
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: #10b981;
+      box-shadow: 0 0 0 6px rgba(16,185,129,.12), 0 0 12px #10b981;
+      animation: pulse 1.8s ease infinite;
+    }
+    footer{
+      position: fixed;
+      inset: auto 0 14px 0;
+      display: grid;
+      place-items: center;
+      color: #7f97b2;
+      font-size: .9rem;
+      pointer-events: none;
+    }
+    a{ color: var(--accent); text-decoration: none; }
+    a:focus-visible{ outline: 3px solid var(--ring); border-radius: 8px; }
+    @keyframes pulse{
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: .65; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fadeIn{
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  🚀 Coming Soon 🚀
+  <main class="wrap" role="main">
+    <div class="logo" aria-hidden="true">
+      <img src="assets/logo.svg" alt="SRD Logo">
+    </div>
+    <h1>Coming&nbsp;Soon</h1>
+    <p class="sub">We&apos;re crafting something clean and fast in the dark. This page is ultra‑light, responsive, and ready for GitHub Pages.</p>
+    <span class="pill"><span class="dot" aria-hidden="true"></span> Status: Active development</span>
+  </main>
+  <footer>© <span id="yr"></span> SRD</footer>
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
